@@ -16,6 +16,9 @@ RUN make X32 --debug
 # ----- Run Stage -----
 FROM alpine:latest AS run
 
+LABEL org.opencontainers.image.source="https://www.github.com/lillian-alicia/x32-emulator-docker/"
+LABEL org.opencontainers.image.description="A docker container running Patrick-Gilles Maillot's X-32 Emulator, used for development and testing code for the Behringer X-32 mixing desk."
+
 # Copy built executable from build stage
 COPY --from=build /x32/build/X32 /x32-emulator/x32 
 WORKDIR /x32-emulator
